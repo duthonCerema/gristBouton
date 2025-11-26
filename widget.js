@@ -17,10 +17,13 @@ async function desactiverNotesTerminees() {
 
     try {
 
+        statusMessage.textContent = "avant await";
 
         // 1. Charger toutes les lignes de la table connectée.
         // Cette fonction retourne un objet qui contient à la fois tableId et tableData.
         const result = await grist.fetchSelectedTable();
+
+        statusMessage.textContent = "après await";
         
         // 2. Extraire l'ID de la table et les données du résultat
         const tableId = result.tableId; // <-- C'est ainsi que vous obtenez le nom de la table
@@ -74,10 +77,12 @@ async function desactiverNotesTerminees() {
         statusMessage.textContent = `Erreur lors de l'exécution: ${error.message || error}`;
     } finally {
         updateButton.disabled = false;
+        statusMessage.textContent = "finally";
     }
 }
 
 // Attacher la fonction au bouton
 
 updateButton.addEventListener('click', desactiverNotesTerminees);
+
 
