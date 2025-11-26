@@ -1,7 +1,7 @@
 // Référence aux éléments de l'interface
 const updateButton = document.getElementById('update-button');
 const statusMessage = document.getElementById('status-message');
-
+ddd
 
 statusMessage.textContent = "ggg";
 
@@ -88,6 +88,7 @@ async function desactiverNotesTerminees() {
 // Attacher la fonction au bouton
 
 updateButton.addEventListener('click', desactiverNotesTerminees);
+
 
 
 
