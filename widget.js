@@ -16,12 +16,18 @@ async function desactiverNotesTerminees() {
     updateButton.disabled = true;
 
     try {
-        // 1. Obtenir le nom de la table connectée
-        // Le widget doit être lié à la table Historique_notes
-        const tableId = await grist.getTableId();
+
+
+        // 1. Charger toutes les lignes de la table connectée.
+        // Cette fonction retourne un objet qui contient à la fois tableId et tableData.
+        const result = await grist.fetchSelectedTable();
+        
+        // 2. Extraire l'ID de la table et les données du résultat
+        const tableId = result.tableId; // <-- C'est ainsi que vous obtenez le nom de la table
+        const allRecords = result.tableData; // <-- C'est ainsi que vous obtenez les données des colonnes
         
         if (!tableId) {
-            statusMessage.textContent = "Erreur: Le widget n'est pas lié à une table (Historique_notes).";
+            statusMessage.textContent = "Erreur: Le widget n'est pas lié à une table.";
             return;
         }
 
@@ -71,4 +77,5 @@ async function desactiverNotesTerminees() {
 }
 
 // Attacher la fonction au bouton
+
 updateButton.addEventListener('click', desactiverNotesTerminees);
