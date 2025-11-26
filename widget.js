@@ -2,7 +2,8 @@
 const updateButton = document.getElementById('update-button');
 const statusMessage = document.getElementById('status-message');
 console.log("start!")
-statusMessage.textContent = "v7";
+statusMessage.textContent = "v8";
+const TABLE_NAME = 'Historique_notes';
 
 // Initialisation de l'API Grist
 grist.ready({
@@ -26,7 +27,8 @@ async function desactiverNotesTerminees() {
 
         // 1. Charger toutes les lignes de la table connectée.
         // Cette fonction retourne un objet qui contient à la fois tableId et tableData.
-        const result = await grist.fetchSelectedTable();
+        const allRecords = await grist.docApi.fetchTable(TABLE_NAME);
+        const tableId = TABLE_NAME;
 
         statusMessage.textContent = "après await";
         
@@ -90,6 +92,7 @@ async function desactiverNotesTerminees() {
 // Attacher la fonction au bouton
 
 updateButton.addEventListener('click', desactiverNotesTerminees);
+
 
 
 
