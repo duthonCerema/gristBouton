@@ -31,10 +31,6 @@ async function desactiverNotesTerminees() {
         const tableId = TABLE_NAME;
 
         statusMessage.textContent = "après await";
-        
-        // 2. Extraire l'ID de la table et les données du résultat
-        const tableId = result.tableId; // <-- C'est ainsi que vous obtenez le nom de la table
-        const allRecords = result.tableData; // <-- C'est ainsi que vous obtenez les données des colonnes
         console.log(tableId);
         
         if (!tableId) {
@@ -92,6 +88,7 @@ async function desactiverNotesTerminees() {
 // Attacher la fonction au bouton
 
 updateButton.addEventListener('click', desactiverNotesTerminees);
+
 
 
 
