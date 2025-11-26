@@ -1,8 +1,8 @@
 // Référence aux éléments de l'interface
 const updateButton = document.getElementById('update-button');
 const statusMessage = document.getElementById('status-message');
-console.error("start!")
-statusMessage.textContent = "v4";
+console.log("start!")
+statusMessage.textContent = "v5";
 
 // Initialisation de l'API Grist
 grist.ready({
@@ -46,12 +46,12 @@ async function desactiverNotesTerminees() {
         const faits = allRecords.Fait;
         const actifs = allRecords.ACTIF;
 
-        console.error(str(faits.length));
+        console.log(str(faits.length));
 
         // Parcourir toutes les lignes
         for (let i = 0; i < faits.length; i++) {
             statusMessage.textContent = str(i);
-            console.error(str(i));
+            console.log(str(i));
             // Vérifier la condition : Fait est True ET ACTIF n'est pas déjà False
             if (faits[i] === true && actifs[i] !== false) {
                 updates.push({
@@ -86,6 +86,7 @@ async function desactiverNotesTerminees() {
 // Attacher la fonction au bouton
 
 updateButton.addEventListener('click', desactiverNotesTerminees);
+
 
 
 
