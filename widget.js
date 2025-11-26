@@ -8,6 +8,8 @@ grist.ready({
 const updateButton = document.getElementById('update-button');
 const statusMessage = document.getElementById('status-message');
 
+
+statusMessage.textContent = "ggg";
 /**
  * Fonction pour parcourir la table Historique_notes et effectuer la mise à jour.
  */
@@ -84,5 +86,6 @@ async function desactiverNotesTerminees() {
 // Attacher la fonction au bouton
 
 updateButton.addEventListener('click', desactiverNotesTerminees);
+
 
 
