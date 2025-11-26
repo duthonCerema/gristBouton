@@ -1,15 +1,17 @@
-// Initialisation de l'API Grist
-grist.ready({
-    requiredAccess: 'full', // Nécessite un accès complet pour écrire les données
-    columns: ['Fait', 'ACTIF'] // Spécifie les colonnes que nous allons lire et écrire
-});
-
 // Référence aux éléments de l'interface
 const updateButton = document.getElementById('update-button');
 const statusMessage = document.getElementById('status-message');
 
 
 statusMessage.textContent = "ggg";
+
+// Initialisation de l'API Grist
+grist.ready({
+    requiredAccess: 'full', // Nécessite un accès complet pour écrire les données
+    columns: ['Fait', 'ACTIF'] // Spécifie les colonnes que nous allons lire et écrire
+});
+
+
 /**
  * Fonction pour parcourir la table Historique_notes et effectuer la mise à jour.
  */
@@ -86,6 +88,7 @@ async function desactiverNotesTerminees() {
 // Attacher la fonction au bouton
 
 updateButton.addEventListener('click', desactiverNotesTerminees);
+
 
 
 
