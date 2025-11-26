@@ -2,7 +2,7 @@
 const updateButton = document.getElementById('update-button');
 const statusMessage = document.getElementById('status-message');
 console.log("start!")
-statusMessage.textContent = "v9";
+statusMessage.textContent = "v10";
 const TABLE_NAME = 'Historique_notes';
 
 // Initialisation de l'API Grist
@@ -54,7 +54,7 @@ async function desactiverNotesTerminees() {
 
         // Parcourir toutes les lignes
         for (let i = 0; i < faits.length; i++) {
-            statusMessage.textContent = str(i);
+            statusMessage.textContent = i;
             console.log(i);
             // Vérifier la condition : Fait est True ET ACTIF n'est pas déjà False
             if (faits[i] === true && actifs[i] !== false) {
@@ -89,6 +89,7 @@ async function desactiverNotesTerminees() {
 // Attacher la fonction au bouton
 
 updateButton.addEventListener('click', desactiverNotesTerminees);
+
 
 
 
