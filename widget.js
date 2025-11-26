@@ -1,9 +1,8 @@
 // Référence aux éléments de l'interface
 const updateButton = document.getElementById('update-button');
 const statusMessage = document.getElementById('status-message');
-ddd
-
-statusMessage.textContent = "ggg";
+console.error("start!")
+statusMessage.textContent = "v2";
 
 // Initialisation de l'API Grist
 grist.ready({
@@ -37,10 +36,6 @@ async function desactiverNotesTerminees() {
             statusMessage.textContent = "Erreur: Le widget n'est pas lié à une table.";
             return;
         }
-
-        // 2. Charger toutes les lignes de la table connectée
-        // La colonne 'id' est implicitement incluse.
-        const allRecords = await grist.fetchSelectedTable();
         
         // 3. Préparer le tableau des mises à jour
         const updates = [];
@@ -88,6 +83,7 @@ async function desactiverNotesTerminees() {
 // Attacher la fonction au bouton
 
 updateButton.addEventListener('click', desactiverNotesTerminees);
+
 
 
 
