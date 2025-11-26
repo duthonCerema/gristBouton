@@ -2,7 +2,7 @@
 const updateButton = document.getElementById('update-button');
 const statusMessage = document.getElementById('status-message');
 console.log("start!")
-statusMessage.textContent = "v5";
+statusMessage.textContent = "v6";
 
 // Initialisation de l'API Grist
 grist.ready({
@@ -32,10 +32,12 @@ async function desactiverNotesTerminees() {
         const tableId = result.tableId; // <-- C'est ainsi que vous obtenez le nom de la table
         const allRecords = result.tableData; // <-- C'est ainsi que vous obtenez les données des colonnes
         
+        
         if (!tableId) {
             statusMessage.textContent = "Erreur: Le widget n'est pas lié à une table.";
             return;
         }
+        console.log(tableId);
         
         // 3. Préparer le tableau des mises à jour
         const updates = [];
@@ -45,6 +47,7 @@ async function desactiverNotesTerminees() {
         const ids = allRecords.id;
         const faits = allRecords.Fait;
         const actifs = allRecords.ACTIF;
+        console.log(faits);
 
         console.log(str(faits.length));
 
@@ -86,6 +89,7 @@ async function desactiverNotesTerminees() {
 // Attacher la fonction au bouton
 
 updateButton.addEventListener('click', desactiverNotesTerminees);
+
 
 
 
