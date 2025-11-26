@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Désactiver Notes Terminées</title>
+    <script src="https://assets.getgrist.com/grist-plugin-api.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            text-align: center;
+        }
+        #update-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff; /* Couleur Grist */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        #update-button:hover {
+            background-color: #0056b3;
+        }
+        #status-message {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mise à jour Historique</h1>
+    <button id="update-button">Désactiver les notes "Fait"</button>
+    <div id="status-message"></div>
+    <script src="widget.js"></script>
+</body>
+</html>
